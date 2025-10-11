@@ -4,7 +4,7 @@ namespace InsuranceManager.Models
 {
     public class Customer
     {
-        [Key]
+        [Key] //Assigns primary key
         public int CustomerId { get; set; }
         public int FirstName { get; set; }
         public string LastName { get; set; }
