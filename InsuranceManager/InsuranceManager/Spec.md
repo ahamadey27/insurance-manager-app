@@ -16,46 +16,46 @@ This report provides a comprehensive, step-by-step guide for developing an insur
 
 ### Deconstructing the MVC Architectural Pattern
 **Goal:** Understanding the **Model-View-Controller (MVC)** pattern is fundamental to comprehending the project's structure and the flow of data. Its primary goal is to enforce a **separation of concerns**.
-- [ ] **Model:** Represents the application's data and business logic (e.g., `Customer`, `Policy` classes). It is independent of the user interface.
-- [ ] **View:** Responsible for presenting the Model's data to the user, typically using Razor files (`.cshtml`) that combine HTML with C# for dynamic UI generation.
-- [ ] **Controller:** Acts as the intermediary, handling user requests, interacting with the Model, and selecting the appropriate View to render.
+- [x] **Model:** Represents the application's data and business logic (e.g., `Customer`, `Policy` classes).
+- [x] **View:** Responsible for presenting the Model's data to the user, typically using Razor files (`.cshtml`) that combine HTML with C# for dynamic UI generation.
+- [x] **Controller:** Acts as the intermediary, handling user requests, interacting with the Model, and selecting the appropriate View to render.
 
 ### Navigating the Project Structure
 **Goal:** The default project template creates a logical folder structure that directly corresponds to the **MVC** pattern.
-- [ ] `Program.cs`: The application's entry point for configuring services and the HTTP request pipeline.
-- [ ] `wwwroot/`: The web root folder for all static assets like CSS, JavaScript, and images.
-- [ ] `Controllers/`, `Models/`, `Views/`: The core folders for the MVC components.
-- [ ] `Views/Shared/_Layout.cshtml`: The master layout file defining the common HTML structure and shared UI elements.
-- [ ] `appsettings.json`: The primary location for application configuration settings like database connection strings.
+- [x] `Program.cs`: The application's entry point for configuring services and the HTTP request pipeline.
+- [x] `wwwroot/`: The web root folder for all static assets like CSS, JavaScript, and images.
+- [x] `Controllers/`, `Models/`, `Views/`: The core folders for the MVC components.
+- [x] `Views/Shared/_Layout.cshtml`: The master layout file defining the common HTML structure and shared UI elements.
+- [x] `appsettings.json`: The primary location for application configuration settings like database connection strings.
 
 ## Part 2: The Data Backbone - Database Design and Entity Framework Core
 **Goal:** A robust and well-designed database is the foundation of the application. This part focuses on designing the database schema and implementing it using **Entity Framework (EF) Core** with a **Code-First** approach.
 
 ### Designing the Insurance Database Schema
 **Goal:** Before writing any code, it is essential to plan the structure of the database, identifying the core entities, their attributes, and their relationships.
-- [ ] **Customers Table:** Stores personal information about each policyholder.
-- [ ] **Policies Table:** A catalog of the different insurance policies offered.
-- [ ] **CustomerPolicies Table:** A linking table that models the many-to-many relationship between Customers and Policies.
-- [ ] **Claims Table:** Records claims filed by a customer against one of their active policies.
+- [x] **Customers Table:** Stores personal information about each policyholder.
+- [x] **Policies Table:** A catalog of the different insurance policies offered.
+- [x] **CustomerPolicies Table:** A linking table that models the many-to-many relationship between Customers and Policies.
+- [x] **Claims Table:** Records claims filed by a customer against one of their active policies.
 
 ### The Code-First Approach with EF Core
 **Goal:** Translate the designed schema into C# classes (entities or models). In the **Code-First** approach, these classes are used by **EF Core** to generate the database schema automatically.
-- [ ] Create a new C# class file for each planned table (`Customer`, `Policy`, `CustomerPolicy`, `Claim`) within the `Models` folder.
-- [ ] Define properties in each class that correspond to the columns in the database schema.
-- [ ] Use Data Annotations (e.g., `[Key]`) to provide **EF Core** with metadata about primary keys, required fields, and relationships.
+- [x] Create a new C# class file for each planned table (`Customer`, `Policy`, `CustomerPolicy`, `Claim`) within the `Models` folder.
+- [x] Define properties in each class that correspond to the columns in the database schema.
+- [x] Use Data Annotations (e.g., `[Key]`) to provide **EF Core** with metadata about primary keys, required fields, and relationships.
 
 ### Configuring the DbContext and Connection String
 **Goal:** The `DbContext` class acts as a bridge between the C# entity classes and the database.
-- [ ] Install the required **EF Core** NuGet packages: `Microsoft.EntityFrameworkCore.SqlServer` and `Microsoft.EntityFrameworkCore.Tools`.
-- [ ] Create a `Data` folder and add an `ApplicationDbContext` class that inherits from `DbContext`.
-- [ ] Define a `DbSet<T>` property in the `ApplicationDbContext` for each entity.
-- [ ] Add a `ConnectionStrings` section to the `appsettings.json` file with the connection details for **SQL Server LocalDB**.
-- [ ] Register the `ApplicationDbContext` with the application's dependency injection container in `Program.cs`.
+- [x] Install the required **EF Core** NuGet packages: `Microsoft.EntityFrameworkCore.SqlServer` and `Microsoft.EntityFrameworkCore.Tools`.
+- [x] Create a `Data` folder and add an `ApplicationDbContext` class that inherits from `IdentityDbContext`.
+- [x] Define a `DbSet<T>` property in the `ApplicationDbContext` for each entity.
+- [x] Add a `ConnectionStrings` section to the `appsettings.json` file with the connection details for **SQL Server LocalDB**.
+- [x] Register the `ApplicationDbContext` with the application's dependency injection container in `Program.cs`.
 
 ### Migrations - Evolving Your Database Schema
 **Goal:** Use **EF Core Migrations** to create and update the database schema based on changes to the C# model classes.
-- [ ] Open the Package Manager Console and run `Add-Migration InitialCreate` to generate the first migration file based on the models.
-- [ ] Run `Update-Database` to execute the migration and create the database and tables in **SQL Server LocalDB**.
+- [x] Open the Package Manager Console and run `Add-Migration InitialCreate` to generate the first migration file based on the models.
+- [x] Run `Update-Database` to execute the migration and create the database and tables in **SQL Server LocalDB**.
 
 ## Part 3: Building the Fortress - Secure Admin Access with ASP.NET Core Identity
 **Goal:** Implement a secure sign-in for administrators using **ASP.NET Core Identity**, a comprehensive membership system for handling user authentication and authorization.
@@ -63,8 +63,8 @@ This report provides a comprehensive, step-by-step guide for developing an insur
 ### Integrating Identity into the Project
 **Goal:** Add the Identity framework to the existing project.
 - [ ] Install the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` NuGet package.
-- [ ] Update the `ApplicationDbContext` to inherit from `IdentityDbContext` instead of `DbContext`.
-- [ ] Configure Identity services in `Program.cs`, enabling user and role management with **EF Core** storage.
+- [x] Update the `ApplicationDbContext` to inherit from `IdentityDbContext`.
+- [x] Configure Identity services in `Program.cs`, enabling user and role management with **EF Core** storage.
 - [ ] Add authentication and authorization middleware to the HTTP request pipeline in `Program.cs`.
 - [ ] Create and apply a new database migration (`Add-Migration AddIdentitySchema` and `Update-Database`) to create the necessary Identity tables.
 
