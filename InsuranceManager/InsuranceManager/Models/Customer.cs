@@ -6,6 +6,7 @@ namespace InsuranceManager.Models
     {
         [Key] //Assigns primary key
         public int CustomerId { get; set; }
+
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -17,6 +18,6 @@ namespace InsuranceManager.Models
 
         // Navigation collection for the many-to-many relationship.
         //Initialize to avoid null reference exceptions and to allow adding items in code.
-        public ICollection<CustomerPolicy> CustomerPolicies { get; set; } = new List<CustomerPolicy>(); 
+        public ICollection<CustomerPolicy> CustomerPolicies { get; set; } = new List<CustomerPolicy>();
     }
 }
