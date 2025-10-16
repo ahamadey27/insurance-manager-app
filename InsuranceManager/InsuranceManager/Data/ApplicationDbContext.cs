@@ -1,5 +1,6 @@
 ﻿using InsuranceManager.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace InsuranceManager.Data
 {
