@@ -62,11 +62,11 @@ This report provides a comprehensive, step-by-step guide for developing an insur
 
 ### Integrating Identity into the Project
 **Goal:** Add the Identity framework to the existing project.
-- [ ] Install the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` NuGet package.
+- [x] Install the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` NuGet package.
 - [x] Update the `ApplicationDbContext` to inherit from `IdentityDbContext`.
 - [x] Configure Identity services in `Program.cs`, enabling user and role management with **EF Core** storage.
-- [ ] Add authentication and authorization middleware to the HTTP request pipeline in `Program.cs`.
-- [ ] Create and apply a new database migration (`Add-Migration AddIdentitySchema` and `Update-Database`) to create the necessary Identity tables.
+- [x] Add authentication and authorization middleware to the HTTP request pipeline in `Program.cs`.
+- [x] Create and apply a new database migration (`Add-Migration AddIdentitySchema` and `Update-Database`) to create the necessary Identity tables.
 
 ### Seeding the Admin User and Role
 **Goal:** Programmatically create a default "Admin" role and an administrator user on application startup to avoid manual setup.
